@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cleve",
+  "version": "1.0.0",
+  "description": "Bring your Cleve workspace into your agent. Find relevant notes and project knowledge, save conversation summaries, and update existing documents.",
+  "author": {
+    "name": "Cleve Sdn. Bhd.",
+    "email": "support@cleve.ai",
+    "url": "https://cleve.ai"
+  },
+  "homepage": "https://cleve.ai",
+  "repository": "https://github.com/cleve-ai/mcp",
+  "license": "MIT",
+  "keywords": ["cleve", "notes", "knowledge", "workspace", "productivity", "mcp"]
+}
