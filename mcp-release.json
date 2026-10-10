@@ -1,0 +1,27 @@
+{
+  "sourceDigest": "dc379550a6d0201c9f19f42fba4d2fbac8b36623504fd32900f4841de96767ee",
+  "contractDigest": "442c30d979f20c134df5cfe8d0bc783d2aa724e707ebb1af6348eaee09e5631e",
+  "files": {
+    ".github/workflows/check.yml": "77d0c3a7d3d471fb73a6e15bf3d7fcccaae8be5cab3567295e664811105dc240",
+    ".gitignore": "15874d6bd47addb61d02a1db63b486640ea7b92947888d9d5b30b7e5f8e3be36",
+    "LICENSE": "d623b697c532f5c70223f9c22ab3207059e01c16677e0579f9951e26851a9c28",
+    "LICENSE-SCOPE.md": "77d098e6c21506513eba69b11263e05711cb801a2fd8ae298fc0bd13170eb953",
+    "README.md": "025741a1b07a1bcc0a080e8ad7c3c593b14ac28e904dc7f38fb0a417e2c2a14b",
+    "assets/cleve-icon-square.svg": "f483485c5340665233e5553b4f16a004ed11e03f889d9e5b6c428942c146ccc7",
+    "assets/directory-logo.png": "3d3ae08a2f4e0f4238e3bf136d24c5dcbc75fbc8baa386f861191b2387e7af8b",
+    "docs/cursor.md": "3adc3a709ee09b45281f2a09d186b63c85b006d1fdeea34e8456ba8f648607da",
+    "docs/distribution.md": "70d72ea9bf32ca4db6795ebcebb47227d71b0668e1a954ac2c3ed3f937511e3f",
+    "docs/smithery.md": "1eca04adb0771e240866f866c082d52ae50210305272a96888fa7913436c1f00",
+    "mcp.json": "0873a3ad7cc4d2dbca817c202faa936074ab796c32d68664a4a0cbb62c3bdd2a",
+    "package.json": "4bdcdbc19677a10577c08b5b2f80d5e6965d795eb4bfeebd479f7597dbec02bc",
+    "plugin.json": "c87dee4511cb5e4033fea3917d3c5a77dd259f0071233316518076317b1e0b11",
+    "scripts/check-distribution.ts": "7e497d805f3cb539a6794305eb4bf922d2a472b24841bf818a15bb9b362acc34",
+    "skills/recall/SKILL.md": "36d31de7184bc243a142a14ad20c712c07ed9f719b038fc98ce8aef2fc683bf0",
+    "skills/save/SKILL.md": "009f07533a67dde5886ca5898ab957961edc27c84e6f23e94781d2e048365268",
+    "skills/share/SKILL.md": "dddca226868d060ca2eda3837a80c5462030af58ff491318c9dd7d848ee9883a",
+    "skills/update/SKILL.md": "c0348714f68a79ed2e5c1b0c78a36968332b7508eb927a712ccdd845ba285592",
+    "tests/distribution.test.ts": "5624558066997be7cbea7e56a2b497fe7696ba0bc893fa72628e1b6bb3b95044",
+    "tests/package.test.ts": "da3bfd0c7f16a7d2c43b7a342bdc66fbfc84c0bdaca7ee5dbb35a9a71c030bc3",
+    "mcp-contract.json": "8a523d5f1c5748c54f0ccb32a26c20e817d2ffca519a4a50189b116844b0edf5"
+  }
+}

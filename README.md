@@ -79,3 +79,7 @@ The public integration repository is [cleve-ai/mcp](https://github.com/cleve-ai/
 ## License
 
 The integration configuration, skills, documentation, and tests are licensed under [MIT](LICENSE). Cleve's logos and other files under `assets/` are excluded; no trademark rights are granted. The hosted Cleve service and its backend are not licensed by this repository. See [license scope](LICENSE-SCOPE.md) for the boundaries.
+
+## Release checks
+
+See [distribution maintenance](docs/distribution.md) for the synchronized contract, checks, and per-directory release process.

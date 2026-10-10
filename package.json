@@ -1,6 +1,6 @@
 {
   "name": "cleve-mcp-integration",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "license": "MIT",
   "description": "Local checks for Cleve's public MCP integration files; not an npm server package.",
