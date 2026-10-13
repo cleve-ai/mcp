@@ -4,7 +4,7 @@
 
 [![Smithery](https://smithery.ai/badge/cleve/cleve)](https://smithery.ai/servers/cleve/cleve)
 
-Bring your Cleve workspace into your AI agent. Find relevant notes, documents, and project knowledge, read the source material, and use it as context for your work. Capture ideas and outcomes as new notes, update existing documents, and organize knowledge into folders. When you want to share something publicly, create a summary with a read-only link others can open.
+Bring your Cleve workspace into your AI agent. Find relevant docs and project knowledge, read the source material, and use it as context for your work. Capture ideas and outcomes as new docs, update existing docs, and organize knowledge into folders. When you want to share something publicly, create a summary with a read-only link others can open.
 
 This repository contains Cleve's public integration configuration, reusable agent skills, and branding. It connects to the existing hosted MCP server; it does not contain Cleve's application backend or run another server.
 
@@ -39,18 +39,20 @@ See [Cursor preparation and review](docs/cursor.md) for the remaining publishing
 
 The public repository to use for the Cursor submission is [cleve-ai/mcp](https://github.com/cleve-ai/mcp). Hosting this repository does not itself publish a Cursor Marketplace listing.
 
+Cleve calls workspace content **docs**. Existing MCP names such as `cleve_read_note`, input fields such as `noteId`, and `/notes/` URLs stay compatible.
+
 ## Reusable skills
 
-- **save**: save a useful summary of the available conversation as one new private note.
+- **save**: save a useful summary of the available conversation as one new private doc.
 - **share**: create a conversation summary with a public, read-only link after establishing public-sharing intent.
-- **recall**: search and read relevant Cleve notes, then explain the findings with sources; no writes.
-- **update**: incorporate new decisions and next steps into the intended existing note using narrow edits; no fallback duplicate note.
+- **recall**: search and read relevant Cleve docs, then explain the findings with sources; no writes.
+- **update**: incorporate new decisions and next steps into the intended existing doc using narrow edits; no fallback duplicate doc.
 
 Invoke skills from the host's picker (names may be namespaced), or ask naturally:
 
 - “Save the decisions and next steps from this conversation to Cleve.”
 - “Bring in relevant Cleve context about the product roadmap and explain what we already decided.”
-- “Update the Cleve note linked above with our agreed next steps. Do not create another note.”
+- “Update the Cleve doc linked above with our agreed next steps. Do not create another doc.”
 - “Create a public, read-only link to a summary of this conversation. Leave out private details.”
 
 Skills describe workflows; installing or connecting alone does not save, edit, or publish anything. They depend on the Cleve MCP tools exposed by the connected host. A plain MCP connection does not automatically install these skills.
@@ -79,3 +81,7 @@ The public integration repository is [cleve-ai/mcp](https://github.com/cleve-ai/
 ## License
 
 The integration configuration, skills, documentation, and tests are licensed under [MIT](LICENSE). Cleve's logos and other files under `assets/` are excluded; no trademark rights are granted. The hosted Cleve service and its backend are not licensed by this repository. See [license scope](LICENSE-SCOPE.md) for the boundaries.
+
+## Release checks
+
+See [distribution maintenance](docs/distribution.md) for the synchronized contract, checks, and per-directory release process.

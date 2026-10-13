@@ -21,14 +21,14 @@ The hosted Cleve listing is [cleve/cleve](https://smithery.ai/servers/cleve/clev
 
 ## Description
 
-Bring your Cleve workspace into your AI agent. Search and read notes, documents, and project knowledge to find relevant context. Capture ideas and outcomes as new notes, update existing documents, and organize knowledge into folders. When you explicitly want to share publicly, enable a read-only note link others can open. Works with personal and shared workspaces available to your connected Cleve account. Requires a free Cleve account.
+Bring your Cleve workspace into your AI agent. Search and read docs and project knowledge to find relevant context. Capture ideas and outcomes as new docs, update existing docs, and organize knowledge into folders. When you explicitly want to share publicly, enable a read-only doc link others can open. Works with personal and shared workspaces available to your connected Cleve account. Requires a free Cleve account.
 
 ## Example prompts
 
 - “What did I write about the product roadmap in Cleve?”
 - “Summarize my meeting notes from last week in Cleve.”
-- “Save our decisions and next steps as a new Cleve note.”
-- “Update the project note linked above with these agreed next steps.”
+- “Save our decisions and next steps as a new Cleve doc.”
+- “Update the project doc linked above with these agreed next steps.”
 
 ## Publishing path
 
