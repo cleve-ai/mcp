@@ -1,6 +1,6 @@
 {
-  "sourceDigest": "e33c0507e89f80bed7a479a65d7ec4cc19c64b579d4f80a418afc299b0265466",
-  "contractDigest": "c29f35fab88e264fe506ed328118d21bd07b2a9ba5f2dd7ca3bb9d7cfca09afd",
+  "sourceDigest": "d94b903e65584ac346a35c6870d7f9a5b248027013f14a2364fe39c0c7c7897c",
+  "contractDigest": "38b41eb476690d31eedc3a600b49410fa02a6c3ece846f8c869890d0056aca90",
   "files": {
     ".github/workflows/check.yml": "77d0c3a7d3d471fb73a6e15bf3d7fcccaae8be5cab3567295e664811105dc240",
     ".gitignore": "15874d6bd47addb61d02a1db63b486640ea7b92947888d9d5b30b7e5f8e3be36",
@@ -13,15 +13,15 @@
     "docs/distribution.md": "70d72ea9bf32ca4db6795ebcebb47227d71b0668e1a954ac2c3ed3f937511e3f",
     "docs/smithery.md": "f10804d21b55dbd100948eb341b0815065d4f15f863f58ed00367a6c3cf95e55",
     "mcp.json": "0873a3ad7cc4d2dbca817c202faa936074ab796c32d68664a4a0cbb62c3bdd2a",
-    "package.json": "9f8d4bd7fb5f325a3e977d6c4e36c9a24c552bb2363b121c2776ed78dcd39ca9",
-    "plugin.json": "eed29910c5006464e6cdd56bf073bf70f9928b41476ab6ed0de4b5e3d8c92d12",
+    "package.json": "9fcb05ab4e07f31e7235ecee6cea27271fab86f4a08ef9abb5993890eccacec9",
+    "plugin.json": "74894c4e39ae583a3ba3f543496645c8c2f2a1f50d2d47263a0ba3382b6d2224",
     "scripts/check-distribution.ts": "7e497d805f3cb539a6794305eb4bf922d2a472b24841bf818a15bb9b362acc34",
-    "skills/recall/SKILL.md": "1159d09893d03ade43de7bc9df724920332b9fb4f49a7eeec90b3038128beb08",
-    "skills/save/SKILL.md": "e6234d671fe742817644884f58d4d38551ef7444ed03e5a0b765f099dee86df7",
-    "skills/share/SKILL.md": "630f6501dd216fc0bc62db05ec0259a30372a7cbf744cc19244fff47733fd6d5",
+    "skills/recall/SKILL.md": "4da1ad7662571c6457c51543a66bc5838abe8ae7aa3d1783a961a2daf6d46bd5",
+    "skills/save/SKILL.md": "2f0031b53da62045fc5815acb9655c0b35f563febe1eb4ba7fe931a454a428a8",
+    "skills/share/SKILL.md": "d1c1f3fc4fca9c0cfe4cf2cb6ab52b583ef054a712d96165bc814ad5a3b64be8",
     "skills/update/SKILL.md": "531e5d7079ce767b6f6202d68d3aaa8b502f0d2b29929b09d5d0cba4e676ba8d",
     "tests/distribution.test.ts": "5624558066997be7cbea7e56a2b497fe7696ba0bc893fa72628e1b6bb3b95044",
     "tests/package.test.ts": "da3bfd0c7f16a7d2c43b7a342bdc66fbfc84c0bdaca7ee5dbb35a9a71c030bc3",
-    "mcp-contract.json": "90c1423fabf7bd5f3e1fc6a399c3fee0f49c5c98efcbdb7533d7eb90317e11cb"
+    "mcp-contract.json": "1c8ca9ff5d10439f988fd0d176b0bb1b10f7388cb65fc71efd4a95a067807167"
   }
 }
