@@ -1,5 +1,5 @@
 {
-  "instructions": "Cleve docs, folders and skills live in workspaces (organizations), and an account can belong to several. Every workspace tool accepts an optional `organization` argument (an org id or exact name). Call cleve_list_orgs first to see the workspaces and which one this client currently targets. If a call fails because no workspace is selected, pass `organization`, or call cleve_switch_org once to save a default for this client. Every Cleve doc has a URL: https://app.cleve.ai/notes/NOTE_ID. Replace NOTE_ID with the exact doc ID (noteId, id, or _id) returned by a tool or supplied in the active doc context. Public, link-shared, and private docs all use /notes/<noteId>; do not use /share/<noteId> or /user/<slug>/<noteId> for a doc link. Never invent an ID. In chat replies, use a clickable Markdown link when delivering a created doc or when the user asks to open or link a doc; prefer the url returned by the tool. A doc URL does not grant access or make the doc public: existing sharing permissions still apply. Sharing and publishing are separate: email collaborators and link access control who can view or edit a doc; web publishing lists a readable post on the owner's public Cleve profile; marketplace publishing creates an installable template copy. Use cleve_get_note_sharing to inspect access, invitations, requests and activity. Copying or returning a doc URL never changes access. Restricted link access and unpublishing do not revoke other grants or inherited folder access.",
+  "instructions": "Cleve docs, folders and skills live in workspaces (organizations), and an account can belong to several. Every workspace tool accepts an optional `organization` argument (an org id or exact name). Call cleve_list_orgs first to see the workspaces and which one this client currently targets. If a call fails because no workspace is selected, pass `organization`, or call cleve_switch_org once to save a default for this client. Tools that take a doc ID act on that doc wherever you have access to it, in the workspace it belongs to, so they need no `organization`. cleve_read_note returns the doc's `workspace`: pass it as `organization` to search, list or create related docs beside it. A doc shared with you from a workspace you are not a member of can be read and edited as shared, but that workspace cannot be searched or added to. Every Cleve doc has a URL: https://app.cleve.ai/notes/NOTE_ID. Replace NOTE_ID with the exact doc ID (noteId, id, or _id) returned by a tool or supplied in the active doc context. Public, link-shared, and private docs all use /notes/<noteId>; do not use /share/<noteId> or /user/<slug>/<noteId> for a doc link. Never invent an ID. In chat replies, use a clickable Markdown link when delivering a created doc or when the user asks to open or link a doc; prefer the url returned by the tool. A doc URL does not grant access or make the doc public: existing sharing permissions still apply. Docs and folders in results carry a `url` that opens them in Cleve. When you point the user to a doc or folder, or answer from one, link it with that url as a normal Markdown link, e.g. [Q3 Plan](https://app.cleve.ai/notes/<id>), so they can open the source. Sharing and publishing are separate: email collaborators and link access control who can view or edit a doc; web publishing lists a readable post on the owner's public Cleve profile; marketplace publishing creates an installable template copy. Use cleve_get_note_sharing to inspect access, invitations, requests and activity. Copying or returning a doc URL never changes access. Restricted link access and unpublishing do not revoke other grants or inherited folder access.",
   "tools": [
     {
       "name": "cleve_add_comment",
@@ -21,7 +21,7 @@
             "description": "The comment, in plain prose"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -49,55 +49,6 @@
       "annotations": {
         "title": "Add comment",
         "readOnlyHint": false,
-        "destructiveHint": false,
-        "openWorldHint": false
-      },
-      "execution": {
-        "taskSupport": "forbidden"
-      }
-    },
-    {
-      "name": "cleve_cite",
-      "title": "Get doc citation sources",
-      "description": "Get citation sources for specific docs",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "noteIds": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "description": "Doc ID from cleve_search_notes, cleve_list_recent_notes, or cleve_list_notes_in_folder."
-            },
-            "description": "Doc IDs from search or listing results to retrieve citation sources for."
-          },
-          "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
-            "type": "string"
-          }
-        },
-        "required": [
-          "noteIds"
-        ],
-        "$schema": "http://json-schema.org/draft-07/schema#"
-      },
-      "outputSchema": {
-        "type": "object",
-        "properties": {
-          "text": {
-            "type": "string"
-          },
-          "data": {}
-        },
-        "required": [
-          "text"
-        ],
-        "$schema": "http://json-schema.org/draft-07/schema#",
-        "additionalProperties": false
-      },
-      "annotations": {
-        "title": "Get doc citation sources",
-        "readOnlyHint": true,
         "destructiveHint": false,
         "openWorldHint": false
       },
@@ -149,7 +100,7 @@
             "type": "string"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -195,7 +146,7 @@
             "type": "string"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -252,7 +203,7 @@
             "type": "boolean"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -310,7 +261,7 @@
             "type": "string"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -356,7 +307,7 @@
             "description": "Folder ID from cleve_list_folders."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -401,7 +352,7 @@
             "description": "Doc ID from cleve_search_notes, cleve_list_recent_notes, or cleve_list_notes_in_folder."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -446,7 +397,7 @@
             "description": "Marketplace item ID from cleve_list_skills or cleve_search_marketplace."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -514,7 +465,7 @@
             ]
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -676,7 +627,7 @@
             "description": "Doc ID from cleve_search_notes, cleve_list_recent_notes, or cleve_list_notes_in_folder."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -721,7 +672,7 @@
             "description": "Doc ID from cleve_search_notes, cleve_list_recent_notes, or cleve_list_notes_in_folder."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -776,7 +727,7 @@
             "description": "Non-empty Markdown to insert; existing lines are kept."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -834,7 +785,7 @@
             }
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -890,7 +841,7 @@
             "description": "Recipient access: viewer can read, editor can edit."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -933,7 +884,7 @@
         "type": "object",
         "properties": {
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -984,7 +935,7 @@
             ]
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1029,7 +980,7 @@
             "description": "Folder ID from cleve_list_folders."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1106,7 +1057,7 @@
             "type": "number"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1144,7 +1095,7 @@
         "type": "object",
         "properties": {
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1197,7 +1148,7 @@
             "description": "Destination parent folder ID from cleve_list_folders; null moves to the top level."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1254,7 +1205,7 @@
             "description": "Destination folder ID from cleve_list_folders; null moves the doc to unfiled."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1300,7 +1251,7 @@
             "description": "Doc ID from cleve_search_notes, cleve_list_recent_notes, or cleve_list_notes_in_folder."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1345,7 +1296,7 @@
             "description": "Doc ID from cleve_search_notes, cleve_list_recent_notes, or cleve_list_notes_in_folder."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1399,7 +1350,7 @@
             "type": "string"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1444,7 +1395,7 @@
             "description": "Marketplace item ID from cleve_list_skills or cleve_search_marketplace."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1480,7 +1431,7 @@
     {
       "name": "cleve_read_note",
       "title": "Read doc",
-      "description": "Read a doc by its ID. `content` is the whole doc as Markdown, with its title (the first H1), headings, lists, tables, doc links and interactive HTML blocks intact. Comment threads are not included: use cleve_list_note_comments. To edit, prefer cleve_view_note plus cleve_replace_in_note, which keep the rest of the doc's text and structure.",
+      "description": "Read a doc by its ID, from any workspace you can open it in. `content` is the whole doc as Markdown, with its title (the first H1), headings, lists, tables, doc links and interactive HTML blocks intact. `workspace` says where the doc lives: pass its `orgId` as `organization` to search, list or create related docs there. When `member` is false the doc was shared from a workspace you are not in, which cannot be searched or added to. Comment threads are not included: use cleve_list_note_comments. To edit, prefer cleve_view_note plus cleve_replace_in_note, which keep the rest of the doc's text and structure.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -1489,7 +1440,7 @@
             "description": "Doc ID from cleve_search_notes, cleve_list_recent_notes, or cleve_list_notes_in_folder."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1538,7 +1489,7 @@
             "description": "Collaborator userId from cleve_get_note_sharing."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1588,7 +1539,7 @@
             "description": "New display name for the folder."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1642,7 +1593,7 @@
             "description": "Replacement Markdown; empty to delete"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1693,7 +1644,7 @@
             "description": "Reply text in plain prose; the thread remains open."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1739,7 +1690,7 @@
             "description": "Invitation _id from cleve_get_note_sharing."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1788,7 +1739,7 @@
             "type": "string"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1853,7 +1804,7 @@
             ]
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1900,7 +1851,7 @@
             "description": "Invitation _id from cleve_get_note_sharing."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1949,7 +1900,7 @@
             "type": "string"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -1995,7 +1946,7 @@
             "type": "number"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -2049,7 +2000,7 @@
             "description": "General access setting; choose editor only when editing is requested."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -2099,7 +2050,7 @@
             "description": "True sets viewer access; false restricts the doc's own link. Other access is unchanged."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -2231,7 +2182,7 @@
             "description": "Recipient userId from cleve_get_note_sharing."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -2277,7 +2228,7 @@
             "description": "Marketplace item ID from cleve_list_skills or cleve_search_marketplace."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -2322,7 +2273,7 @@
             "description": "Doc ID from cleve_search_notes, cleve_list_recent_notes, or cleve_list_notes_in_folder."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -2367,7 +2318,7 @@
             "description": "Doc ID from cleve_search_notes, cleve_list_recent_notes, or cleve_list_notes_in_folder."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -2412,7 +2363,7 @@
             "description": "Marketplace item ID from cleve_list_skills or cleve_search_marketplace."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -2475,7 +2426,7 @@
             "type": "string"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -2533,7 +2484,7 @@
             "description": "Recipient access: viewer can read, editor can edit."
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -2600,7 +2551,7 @@
             "type": "string"
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
@@ -2652,7 +2603,7 @@
             }
           },
           "organization": {
-            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace.",
+            "description": "Workspace to act in: an org id or exact name from cleve_list_orgs. Omit to use this client's saved selection, or your only workspace. Tools that take a doc ID always run in that doc's own workspace.",
             "type": "string"
           }
         },
