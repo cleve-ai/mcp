@@ -17,7 +17,7 @@ The hosted Cleve listing is [cleve/cleve](https://smithery.ai/servers/cleve/clev
 - Privacy: https://cleve.ai/privacy
 - Terms: https://cleve.ai/terms
 - Demo video: https://www.youtube.com/watch?v=z2zb765Tjls
-- Logo: `assets/cleve-icon-square.svg` or `assets/directory-logo.png`
+- Logo: `assets/cleve-icon-square.svg` or `assets/directory-logo.png`. Listings that need a background plate can use `assets/cleve-icon-square-white.svg` or `assets/cleve-icon-square-white.png`.
 
 ## Description
 

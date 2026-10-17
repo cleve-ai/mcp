@@ -70,7 +70,7 @@ Only send Cleve the content the user asks to save or edit. Never include passwor
 - [Support](https://cleve.ai/support) · [Privacy](https://cleve.ai/privacy) · [Terms](https://cleve.ai/terms)
 - Contact: support@cleve.ai
 - [Demo video](https://www.youtube.com/watch?v=z2zb765Tjls)
-- Branding: `assets/cleve-icon-square.svg` is a square, icon-only SVG. `assets/directory-logo.png` is the supplied square directory PNG.
+- Branding: `assets/cleve-icon-square.svg` is a square, icon-only SVG. `assets/cleve-icon-square-white.svg` and `assets/cleve-icon-square-white.png` are the same square artwork on a solid white background plate. `assets/directory-logo.png` is the supplied square directory PNG.
 
 ## Checks and publication status
 
