@@ -6,7 +6,8 @@ identified below.
 
 ## Brand assets and trademarks
 
-All files under `assets/`, including `assets/cleve-icon-square.svg` and
+All files under `assets/`, including `assets/cleve-icon-square.svg`,
+`assets/cleve-icon-square-white.svg`, `assets/cleve-icon-square-white.png`, and
 `assets/directory-logo.png`, are excluded from the MIT license. Copyright
 2026 Cleve Sdn. Bhd. All rights reserved.
 
