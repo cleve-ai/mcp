@@ -22,8 +22,6 @@ const expectedFiles = [
   "LICENSE-SCOPE.md",
   "README.md",
   "assets/cleve-icon-square.svg",
-  "assets/cleve-icon-square-white.png",
-  "assets/cleve-icon-square-white.svg",
   "assets/directory-logo.png",
   ".github/workflows/check.yml",
   "docs/distribution.md",
@@ -144,33 +142,6 @@ test("SVG icon declares a square viewport and has no active or external content"
   expect(svg).toMatch(HEIGHT);
   expect(svg).toMatch(VIEWBOX);
   expect(svg).not.toMatch(ACTIVE_SVG);
-});
-
-test("white-background square logo is an opaque 512 PNG on the same plate", async () => {
-  const svg = await Bun.file(
-    join(root, "assets/cleve-icon-square-white.svg")
-  ).text();
-  expect(svg).toMatch(WIDTH);
-  expect(svg).toMatch(HEIGHT);
-  expect(svg).toMatch(VIEWBOX);
-  expect(svg).toContain(
-    '<rect x="-36.5" y="-69" width="512" height="512" fill="#FFFFFF"/>'
-  );
-  expect(svg).not.toMatch(ACTIVE_SVG);
-  const png = new Uint8Array(
-    await Bun.file(
-      join(root, "assets/cleve-icon-square-white.png")
-    ).arrayBuffer()
-  );
-  expect(Array.from(png.slice(0, 8))).toEqual([
-    137, 80, 78, 71, 13, 10, 26, 10,
-  ]);
-  const header = new DataView(png.buffer);
-  expect(header.getUint32(16)).toBe(512);
-  expect(header.getUint32(20)).toBe(512);
-  expect(png[24]).toBe(8);
-  expect(png[25]).toBe(2);
-  expect(Buffer.from(png).includes("tRNS")).toBe(false);
 });
 
 test("PNG directory asset has a valid square image header", async () => {
