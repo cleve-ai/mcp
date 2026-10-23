@@ -13,7 +13,7 @@
 - Support: https://cleve.ai/support
 - Privacy: https://cleve.ai/privacy
 - Demo: https://www.youtube.com/watch?v=z2zb765Tjls
-- Logo: `assets/cleve-icon-square.svg` or `assets/directory-logo.png`. Listings that need a background plate can use `assets/cleve-icon-square-white.svg` or `assets/cleve-icon-square-white.png`.
+- Logo: `assets/cleve-icon-square.svg` or `assets/directory-logo.png`
 
 ## Remaining checks
 
