@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cleve",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Bring your Cleve workspace into your agent. Find relevant docs and project knowledge, save conversation summaries, and update existing docs.",
   "author": {
     "name": "Cleve Sdn. Bhd.",

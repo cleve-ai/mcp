@@ -24,6 +24,6 @@ Turn the discussion into a durable, readable doc, not a transcript dump. The use
 
 ## Finish
 
-Report the saved title and workspace. Use `cleve_cite` for the created doc if needed to obtain a source link; include a URL only if a tool returns it, otherwise provide the doc ID. Distinguish a verified save from an unverified or partial write, and offer a recovery step when saving failed. Do not say "saved" merely because you drafted the summary.
+Report the saved title and workspace. Include the source URL returned by `cleve_create_note` or `cleve_read_note`; if neither returns a URL, provide the doc ID. Distinguish a verified save from an unverified or partial write, and offer a recovery step when saving failed. Do not say "saved" merely because you drafted the summary.
 
 Example requests: `/save`, "Save a summary of this conversation to Cleve", or "Save just our decisions to my Product workspace". A slash-command picker may namespace the skill under Cleve; a natural-language request works without assuming a global `/save` shortcut.
