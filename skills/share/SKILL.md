@@ -23,7 +23,7 @@ Summarize only the available user-visible discussion. Preserve useful conclusion
 
 ## Return the result
 
-Return the title and a copyable Markdown link, stating "Anyone with this link can read it." Cleve's canonical doc-link format is `https://app.cleve.ai/notes/<noteId>`; construct it only from the verified doc ID and confirmed viewer-link state. This is the same link format Cleve's sharing UI uses. Do not substitute a guessed slug, a ChatGPT share URL, or a citation preview. `cleve_cite` returns doc IDs, titles, and previews; it does not create public URLs or change permissions.
+Return the title and a copyable Markdown link, stating "Anyone with this link can read it." Cleve's canonical doc-link format is `https://app.cleve.ai/notes/<noteId>`; construct it only from the verified doc ID and confirmed viewer-link state. This is the same link format Cleve's sharing UI uses. Do not substitute a guessed slug, a ChatGPT share URL, or a citation preview. A URL returned by a create, search, or read tool does not itself enable public access; verify viewer-link sharing separately.
 
 Do not claim to have tested signed-out access unless it was actually tested. If the user explicitly requests revocation, `cleve_share_note` with `isPublic: false` disables the doc's own link-sharing; do not promise it erases copies already made or removes independently granted access. Sharing an existing summary instead requires the user to identify and authorize that exact doc; read its entire content and apply the same public-disclosure check first.
 
