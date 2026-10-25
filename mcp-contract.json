@@ -298,7 +298,7 @@
     {
       "name": "cleve_delete_folder",
       "title": "Delete folder",
-      "description": "Delete a folder and move its docs to unfiled",
+      "description": "Delete a folder. Its docs and subfolders move up one level, to its parent folder or unfiled",
       "inputSchema": {
         "type": "object",
         "properties": {
