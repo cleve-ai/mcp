@@ -1,6 +1,6 @@
 {
-  "sourceDigest": "030cf8747aed6701b7dd61762c82f5f29e348e319039e544b57e89b98abc435d",
-  "contractDigest": "1437b17712b3b7e93534d3e054d5f6cfaf7e3313c0dd655ab4e627c0ec985d70",
+  "sourceDigest": "1a25e6ad82e6015d01ba235d8d0d021558a961c453fd47fa2ff2ba3224c9a00b",
+  "contractDigest": "27d417ffa4868fd9b126a657b5943211be4ae4f912f6d2e03406e549a51dc9d8",
   "files": {
     ".github/workflows/check.yml": "77d0c3a7d3d471fb73a6e15bf3d7fcccaae8be5cab3567295e664811105dc240",
     ".gitignore": "15874d6bd47addb61d02a1db63b486640ea7b92947888d9d5b30b7e5f8e3be36",
@@ -24,6 +24,6 @@
     "skills/update/SKILL.md": "531e5d7079ce767b6f6202d68d3aaa8b502f0d2b29929b09d5d0cba4e676ba8d",
     "tests/distribution.test.ts": "5624558066997be7cbea7e56a2b497fe7696ba0bc893fa72628e1b6bb3b95044",
     "tests/package.test.ts": "fe717c0c84462ba954ecc959efbf34a4cb574ab85cefec46bed0da153358a53c",
-    "mcp-contract.json": "bb2879204c35f32824ef76f47b639b79425dd84716b5fa381aa1f437cdfb5a4e"
+    "mcp-contract.json": "fc0650045bbacb9532086d52ade953c73f7c8e99abfdfb003e146e98b3bf9955"
   }
 }
