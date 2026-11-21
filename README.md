@@ -17,6 +17,14 @@ This repository contains Cleve's public integration configuration, reusable agen
 
 Use a personal or shared workspace available to your connected account. The skills resolve the destination and pass the workspace explicitly. A workspace picker alone is not a claim about server-side isolation.
 
+## Claude
+
+Cleve is listed in the [Claude directory](https://claude.ai/directory/cleve). Open it, click **Connect**, then sign in to Cleve.
+
+## ChatGPT
+
+Cleve is listed in [ChatGPT plugins](https://chatgpt.com/plugins/plugin_asdk_app_6ab2a688a5f88191a8d7965b69b3629e). Open it, click **Install plugin**, then sign in to Cleve. The ChatGPT plugin includes the four skills below.
+
 ## Cursor
 
 The root `plugin.json` and `mcp.json` use the portable Agent Plugins format supported by Cursor. The four skills are discovered from `skills/`.
